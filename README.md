@@ -1,2 +1,2 @@
-# MovieTimes
-A website that show movies and their overview and displays the trailers of the movie. we can search in this or list movies according to a genre
+# MovieTimes 
+a movie library web application with search , search by genre and pagination features and also when click on know more for movie it show the trailer of the movie
