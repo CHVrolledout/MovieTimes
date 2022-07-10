@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@200;400;700&display=swap');
+
+* {
+
+    box-sizing: border-box;
+    
+}
+
+
+:root{
+    --primary-color:#0f3174;
+    --secondary-color:#2b5fb3;
+    --primary-image: linear-gradient(#22254b,rgb(8, 118, 148));
+}
+
+
+body{
+    background-image: var(--primary-image);
+    font-family: 'Poppins',sans-serif;
+    margin: 0;
+}
+
+#id{
+    align-content: center;
+}
+
+
+header{
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-image:linear-gradient(rgb(81, 187, 216),#22254b);
+    box-shadow: 0.2px 3px 3px #d5d6d9;
+    border-radius: 0px 50px 10px 60px;
+}
+
+.header-title{
+    margin: 0px 0px 0px 20px;
+    color: #fff;
+    font-family:'Edu TAS Beginner';
+    font-size:xx-large;
+    font-weight: 400;
+}
+
+.search{
+    background-image: linear-gradient(rgb(81, 187, 216),#22254b);
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: #fff;
+    font-family: inherit;
+}
+
+.search:focus{
+    outline: 0;
+    background-color: var(--primary-color);
+}
+
+.search::placeholder{
+    color: #ffffff; 
+}
+
+#tags{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.tag{
+    color: black;
+    padding: 10px 20px;
+    background-color: rgb(0, 255, 123);
+    border-radius: 30px;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease-in;
+    box-shadow: 0.2 2px 2px #fff;
+}
+
+.tag::after, .tag::before{
+    opacity: 0.3;
+    background: rgb(255, 166, 0);
+    border-radius: inherit;
+    transition: transform 0.3s ease;
+}
+
+.tag:hover{
+   transform: translate(-6px,-6px);
+}
+
+.tag:hover::after{
+    transform: translate(2px,2px);
+ }
+
+ .tag:hover::before{
+    transform: translate(8px,8px);
+ }
+
+.tag.highlight{
+    background-color: #2b5fb3;
+}
+
+.no-results{
+    color: white;
+    margin: 250px 100px;
+    
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.movie{
+    width: 300px;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 0.2px 4px 5px rgba(255, 255, 255, 0.834);
+    background-image: linear-gradient(238deg, blue,#1b85b3 20%);
+    position: relative;
+    overflow: hidden;
+}
+
+.movie img{
+    width: 100%;
+}
+
+.movie-info{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3{
+    margin-top: 0;
+}
+
+.movie-info span{
+    background-image: linear-gradient(black,rgb(0, 47, 100));
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+    box-shadow: 0.2px 2px 2px rgba(179, 186, 198, 0.834);
+}
+
+.movie-info span.green{
+    color: lightgreen;
+
+}
+
+.movie-info span.orange{
+    color: orange;
+    
+}
+
+.movie-info span.red{
+    color: red;
+    
+}
+
+.overview{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgb(81, 187, 216),rgb(255, 255, 255) 60%);
+    padding: 1rem;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
+
+.know-more{
+    background-color: red;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 50px;
+    padding: 10px 15px;
+    margin-top: 5px;
+}
+
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+    position: relative;
+    top: 15%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 0px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+  }
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    margin-bottom: 0;
+  }
+  
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+
+.movie:hover .overview{
+    transform: translateY(0);
+}
+
+.pagination{
+    display: flex;
+    margin: 15px 30px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.page{
+    padding: 20px;
+    cursor: pointer;
+}
+
+.page.disabled{
+    cursor: not-allowed;
+    color: rgb(81, 187, 216);
+}
+
+.current{
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 3px solid rgb(0, 255, 123);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.movie-title{
+    color: #fff;
+    align-items: center;
+    margin-top: 0;
+}
+
+
+.embed.hide{
+    display: none;
+}
+
+.embed.show{
+    display: inline-block;
+}
+
+
+.arrow{
+    position:absolute;
+    top:50%;
+}
+
+.arrow.left-arrow{
+    left: 10%;
+    transform: translateY(-50%);
+}
+
+.arrow.right-arrow{
+    right: 10%;
+    transform: translateY(-50%);
+}
+
+
+.dots{
+    margin-top: 75px;
+}
+
+.dots .dot{
+    color: #fff;
+    padding: 5px 20px;
+    border: 5px solid rgb(0, 0, 0);  
+    border-radius: 50%; 
+    font-size: 20px;
+    font-weight: 600;  
+    margin: 5px;
+}
+
+.dots .dot.active{
+    border-color: rgb(0, 191, 255);
+}
+
+.header-items{
+    display: flex;
+    justify-content: space-between;
+}
+
